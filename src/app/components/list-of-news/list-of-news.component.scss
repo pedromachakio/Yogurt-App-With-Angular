@@ -1,0 +1,29 @@
+.my-container {
+  height: 100%;
+  max-width: 1024px;
+  background-color: transparent;
+  border: none;
+}
+
+.my-img {
+  object-fit: cover;
+  width: 100%;
+  max-height: fit-content;
+  object-fit: cover;
+  height: 250px;
+  max-height: 250px;
+  min-height: 250px;
+}
+
+.wrapping-div {
+  justify-content: space-around;
+  text-align: center;
+}
+
+.hr-margin {
+  margin-top: -80px;
+}
+
+.card-margin {
+  margin-top: -25px;
+}

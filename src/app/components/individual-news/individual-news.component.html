@@ -1,0 +1,15 @@
+<div class="container row d-block m-auto my-container pt-5 w-100 card border-0">
+  <ygr-jumbotron></ygr-jumbotron>
+  <hr />
+  <div
+    class="container row d-block m-auto text-container pt-5 w-100 card border-0"
+  >
+    <img
+      src="{{ individualNews?.imgPath }}"
+      class="card-img-top my-img"
+      alt="{{ individualNews?.description }}"
+    />
+    <h2 class="ml-3 brand-h2 h2-title">{{ individualNews?.title }}</h2>
+    <div [innerHTML]="individualNews?.content"></div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+/* Importing Bootstrap SCSS file & Bootstrap Icons. */
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+/* Importing Fonts. */
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans:wght@400;700&display=swap");
+
+html {
+  height: 100%;
+  font-size: 16px;
+  font-family: Open Sans, sans-serif;
+}
+
+body {
+  background-image: linear-gradient(to bottom right, #00bbc9, #00f490);
+  background-attachment: fixed;
+  font-size: 16px;
+  font-family: Open Sans, sans-serif;
+}

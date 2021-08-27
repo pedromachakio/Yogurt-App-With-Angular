@@ -1,0 +1,21 @@
+<div class="container row d-block m-auto my-container pt-5 w-100 text-white">
+  <ygr-jumbotron></ygr-jumbotron>
+  <hr class="hr-margin" />
+  <div class="row w-100 wrapping-div mx-auto text-dark card-margin">
+    <div class="card-deck my-5" *ngFor="let news of listOfNews">
+      <div class="card shadow col-lg-12" style="width: 18rem">
+        <a [routerLink]="['/news', news.id]">
+          <img
+            src="{{ news.imgPath }}"
+            class="card-img-top my-img"
+            alt="{{ news.title }}"
+          />
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">{{ news.title }}</h5>
+          <p class="card-text">{{ news.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

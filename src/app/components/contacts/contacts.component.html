@@ -1,0 +1,99 @@
+<div class="container row d-block m-auto my-container pt-5 w-100 card pb-3">
+  <ygr-jumbotron> </ygr-jumbotron>
+
+  <form
+    #contactForm="ngForm"
+    class="mb-2 form-margin"
+    novalidate
+    (ngSubmit)="onFormSubmit()"
+    [hidden]="isSendingForm || isFormSent"
+  >
+    <div class="form-group">
+      <label for="email">E-mail Address</label>
+      <input
+        type="email"
+        email
+        name="email"
+        class="form-control"
+        [(ngModel)]="userPost.email"
+        id="email"
+        required
+        #email="ngModel"
+      />
+      <small *ngIf="email.untouched">
+        We'll probably share your email with someone else.</small
+      >
+      <!-- Error handling div -->
+      <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+        <div *ngIf="email.errors?.email">Please enter a valid e-mail.</div>
+        <div *ngIf="email.errors?.required">E-mail is required.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="subject">Subject</label>
+      <input
+        type="text"
+        name="subject"
+        class="form-control"
+        [(ngModel)]="userPost.subject"
+        id="subject"
+        required
+        #subject="ngModel"
+        minlength="10"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="subject.touched && subject.invalid"
+      >
+        <div *ngIf="subject.errors?.required">Please enter a subject.</div>
+        <div *ngIf="subject.errors?.minlength">
+          Message must be at least
+          {{ subject.errors?.minlength.requiredLength }} characters long.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea
+        type="text"
+        name="message"
+        class="form-control"
+        [(ngModel)]="userPost.message"
+        id="message"
+        required
+        #message="ngModel"
+        minlength="50"
+      ></textarea>
+
+      <div
+        class="alert alert-danger"
+        *ngIf="message.touched && message.invalid"
+      >
+        <div *ngIf="message.errors?.required">Please enter a message.</div>
+        <div *ngIf="message.errors?.minlength">
+          Message must be at least
+          {{ message.errors?.minlength.requiredLength }} characters long.
+        </div>
+      </div>
+    </div>
+
+    <button
+      class="btn btn-secondary my-button"
+      type="submit"
+      [disabled]="!contactForm.valid"
+    >
+      Send
+    </button>
+  </form>
+  <ygr-loading-spinner
+    [is-loading]="isSendingForm"
+    class="contacts-spinner"
+  ></ygr-loading-spinner>
+
+  <div class="d-flex justify-content-center success-div" *ngIf="isFormSent">
+    <i class="bi bi-patch-check contacts-success"> </i>
+    <div class="message-sent">Message sent, thank you!</div>
+  </div>
+</div>
